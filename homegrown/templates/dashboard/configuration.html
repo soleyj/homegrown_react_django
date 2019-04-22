@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "dashboard/base.html" %}
+{% load staticfiles %}
+    {% block body_block%}
+    <link rel="stylesheet" href="{% static 'dashboard/configuration.css' %}">
+    <div class ="container">
+            <div class="row">
+                <div class="col-8">
+                    <h2>Configuració de Llum</h2>
+                    <div class="slidecontainer">
+                        <p>Selecionar Hores de LLum: <span id="demo"></span></p>
+                        <input type="range" min="1" max="24" value="10" class="slider" id="myRange">
+                        <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14"/>
+                        <p>Value: <span id="demo"></span></p>
+                    </div>
+                    <div class="input-info">
+                        <p>Selecionar hora d'inici de dia: <span id="demo"></span></p>
+                        <input class="form-control form-control-lg" type="text" placeholder="1">
+                    </div>
+                </div>
+                <div class="col-4">
+
+                </div>
+              </div>
+        </div>
+    <script>
+        script src="{% static "dashboard/configuration.js" %}" >
+    </script>
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+        
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        }
+        </script>
+ 
+    {% endblock %}
