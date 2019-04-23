@@ -12,6 +12,7 @@ class Sensor(models.Model):
     time = models.DateTimeField(auto_now_add=True)
     machine = models.ForeignKey('Machines', related_name = "machines", null = False, on_delete = models.CASCADE)  
 
+
 class Machines(models.Model):
     name = models.CharField(max_length = 150)
     owner = models.ManyToManyField(User, related_name ="machine")
