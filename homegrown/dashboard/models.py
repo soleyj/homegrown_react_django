@@ -7,9 +7,6 @@ class Sensor(models.Model):
     humid = models.FloatField()
     watertank = models.IntegerField()
     time = models.DateTimeField(auto_now_add=True)
-    humid = models.FloatField()
-    watertank = models.IntegerField()
-    time = models.DateTimeField(auto_now_add=True)
     machine = models.ForeignKey('Machines', related_name = "machines", null = False, on_delete = models.CASCADE)  
 
 
@@ -37,7 +34,7 @@ class MachineState(models.Model):
     bomba_nutri1 = models.BooleanField()
     bomba_nutri2 = models.BooleanField()
     bomba_oxigen = models.BooleanField()
-
+    ventilador = models.BooleanField()
     time = models.DateTimeField(auto_now_add=True)
     machine = models.ForeignKey('Machines', related_name = "machines3", null = False, on_delete = models.CASCADE)  
 

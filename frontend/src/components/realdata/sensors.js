@@ -23,6 +23,7 @@ export class sensors extends Component {
     const { match } = this.props;
 
     const machineId = match.params.machineId;
+    this.state.machine = machineId;
     this.getMachineState(machineId);
   }
 
@@ -42,7 +43,7 @@ export class sensors extends Component {
     phmin: "",
     tempmax: "",
     tempmin: "",
-    machine: "2"
+    machine: ""
   };
 
   onChange = e => {
@@ -53,6 +54,7 @@ export class sensors extends Component {
 
   onSubmit = e => {
     e.preventDefault();
+
     if (this.state.inicillum == "") {
       this.state.inicillum = this.props.config.inicillum;
     }
@@ -144,6 +146,11 @@ export class sensors extends Component {
                 <ListGroup.Item>Bomba Oxigen ON</ListGroup.Item>
               ) : (
                 <ListGroup.Item>Bomba Oxigen OFF</ListGroup.Item>
+              )}
+              {this.props.state_machine.ventilador ? (
+                <ListGroup.Item>Ventialdor ON</ListGroup.Item>
+              ) : (
+                <ListGroup.Item>Ventialdor OFF</ListGroup.Item>
               )}
             </Col>
             <Col>
